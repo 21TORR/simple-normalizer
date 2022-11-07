@@ -21,7 +21,7 @@ final class SimpleNormalizerBundle extends Bundle
 	/**
 	 * @inheritDoc
 	 */
-	public function build (ContainerBuilder $container)
+	public function build (ContainerBuilder $container) : void
 	{
 		$container->registerForAutoconfiguration(SimpleObjectNormalizerInterface::class)
 			->addTag("torr.normalizer.simple-object-normalizer");
