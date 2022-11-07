@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Nucleus\:
+        resource: ../src/*
+        exclude:
+            - ../src/NucleusBundle.php
+            - ../src/PageTree/Data/*
+
+    Torr\SimpleNormalizer\Normalizer\SimpleNormalizer:
+        $objectNormalizers: !tagged_locator {tag: 'torr.normalizer.simple-object-normalizer', default_index_method: 'getNormalizedType'}
