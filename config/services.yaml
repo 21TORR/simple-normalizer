@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Torr\SimpleNormalizer\:
+        resource: ../src/*
+        exclude:
+            - ../src/Exception/*
+            - ../src/SimpleNormalizerBundle.php
+
+    Torr\SimpleNormalizer\Normalizer\SimpleNormalizer:
+        $objectNormalizers: !tagged_locator {tag: 'torr.normalizer.simple-object-normalizer', default_index_method: 'getNormalizedType'}
