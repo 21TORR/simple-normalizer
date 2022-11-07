@@ -1,5 +1,5 @@
 {
-	"name": "21torr/simple-normalizer-bundle",
+	"name": "21torr/simple-normalizer",
 	"description": "A simple and fast normalizer bundle for Symfony.",
 	"license": "MIT",
 	"type": "symfony-bundle",
