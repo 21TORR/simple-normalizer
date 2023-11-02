@@ -3,9 +3,8 @@
 namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ServiceLocator;
 use Tests\Torr\SimpleNormalizer\Fixture\DummyVO;
-use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
+use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\ObjectTypeNotSupportedException;
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 use Torr\SimpleNormalizer\Normalizer\SimpleObjectNormalizerInterface;

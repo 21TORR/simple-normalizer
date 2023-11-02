@@ -3,9 +3,7 @@
 namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ServiceLocator;
-use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
-use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
+use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 
 final class ArrayNormalizerTest extends TestCase
 {

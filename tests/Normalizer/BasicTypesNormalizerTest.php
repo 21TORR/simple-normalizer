@@ -3,7 +3,7 @@
 namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
+use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
 
 final class BasicTypesNormalizerTest extends TestCase
