@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Torr\SimpleNormalizer\Helper;
+namespace Torr\SimpleNormalizer\Test;
 
 use Symfony\Component\DependencyInjection\ServiceLocator;
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;

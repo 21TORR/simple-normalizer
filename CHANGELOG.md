@@ -1,3 +1,9 @@
+1.1.1
+=====
+
+* (bug) Move test trait to published namespace.
+
+
 1.1.0
 =====
 
