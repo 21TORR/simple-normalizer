@@ -5,12 +5,15 @@ namespace Tests\Torr\SimpleNormalizer\Normalizer;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ServiceLocator;
 use Tests\Torr\SimpleNormalizer\Fixture\DummyVO;
+use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\ObjectTypeNotSupportedException;
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 use Torr\SimpleNormalizer\Normalizer\SimpleObjectNormalizerInterface;
 
 final class ObjectNormalizationTest extends TestCase
 {
+	use SimpleNormalizerTestTrait;
+
 	/**
 	 *
 	 */
@@ -33,9 +36,7 @@ final class ObjectNormalizationTest extends TestCase
 		};
 
 		$value = new DummyVO(42);
-		$normalizer = new SimpleNormalizer(new ServiceLocator([
-			$dummyNormalizer::getNormalizedType() => static fn () => $dummyNormalizer,
-		]));
+		$normalizer = $this->createNormalizer($dummyNormalizer);
 
 		self::assertEquals(["id" => 42], $normalizer->normalize($value));
 	}
@@ -47,7 +48,7 @@ final class ObjectNormalizationTest extends TestCase
 	{
 		$this->expectException(ObjectTypeNotSupportedException::class);
 
-		$normalizer = new SimpleNormalizer(new ServiceLocator([]));
+		$normalizer = $this->createNormalizer();
 		$normalizer->normalize(new DummyVO(11));
 	}
 }

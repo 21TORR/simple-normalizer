@@ -1,3 +1,9 @@
+1.0.2
+=====
+
+* (improvement) Add public helper trait `SimpleNormalizerTestTrait`.
+
+
 1.0.1
 =====
 
