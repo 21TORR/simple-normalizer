@@ -3,12 +3,13 @@
 namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ServiceLocator;
+use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
-use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 
 final class BasicTypesNormalizerTest extends TestCase
 {
+	use SimpleNormalizerTestTrait;
+
 	/**
 	 *
 	 */
@@ -26,7 +27,7 @@ final class BasicTypesNormalizerTest extends TestCase
 	 */
 	public function testBasicValue (mixed $input, mixed $expected) : void
 	{
-		$normalizer = new SimpleNormalizer(new ServiceLocator([]));
+		$normalizer = $this->createNormalizer();
 		self::assertSame($expected, $normalizer->normalize($input));
 	}
 
@@ -45,7 +46,7 @@ final class BasicTypesNormalizerTest extends TestCase
 	{
 		$this->expectException(UnsupportedTypeException::class);
 
-		$normalizer = new SimpleNormalizer(new ServiceLocator([]));
+		$normalizer = $this->createNormalizer();
 		$normalizer->normalize($input);
 	}
 }

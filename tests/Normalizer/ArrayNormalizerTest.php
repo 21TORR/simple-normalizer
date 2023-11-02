@@ -4,10 +4,13 @@ namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ServiceLocator;
+use Tests\Torr\SimpleNormalizer\Helper\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 
 final class ArrayNormalizerTest extends TestCase
 {
+	use SimpleNormalizerTestTrait;
+
 	/**
 	 *
 	 */
@@ -24,7 +27,7 @@ final class ArrayNormalizerTest extends TestCase
 	 */
 	public function testListArray (array $input, array $expected) : void
 	{
-		$normalizer = new SimpleNormalizer(new ServiceLocator([]));
+		$normalizer = $this->createNormalizer();
 		$actual = $normalizer->normalize($input);
 
 		self::assertEquals($expected, $actual);
@@ -46,7 +49,7 @@ final class ArrayNormalizerTest extends TestCase
 	 */
 	public function testAssociativeArray (array $input, array $expected) : void
 	{
-		$normalizer = new SimpleNormalizer(new ServiceLocator([]));
+		$normalizer = $this->createNormalizer();
 		$actual = $normalizer->normalize($input);
 
 		self::assertEquals($expected, $actual);
