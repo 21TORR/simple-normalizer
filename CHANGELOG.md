@@ -1,7 +1,7 @@
-1.0.2
+1.1.0
 =====
 
-* (improvement) Add public helper trait `SimpleNormalizerTestTrait`.
+* (feature) Add public helper trait `SimpleNormalizerTestTrait`.
 
 
 1.0.1
