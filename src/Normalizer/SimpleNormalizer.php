@@ -92,4 +92,15 @@ final class SimpleNormalizer
 
 		return $result;
 	}
+
+
+	/**
+	 * Normalizes a map of values.
+	 * Will JSON-encode to `{}` when empty.
+	 */
+	public function normalizeMap (array $array, array $context) : array|\stdClass
+	{
+		// return stdClass if the array is empty here, as it will be automatically normalized to `{}` in JSON.
+		return $this->normalizeArray($array, $context) ?: new \stdClass();
+	}
 }
