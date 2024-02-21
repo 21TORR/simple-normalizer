@@ -1,3 +1,9 @@
+1.2.1
+=====
+
+* (improvement) Allow Symfony v7.
+
+
 1.2.0
 =====
 
