@@ -2,6 +2,7 @@
 =====
 
 * (feature) Add `SimpleNormalizer::normalizeMap()`.
+* (feature) Add helper VO `ValueWithContext`.
 
 
 1.1.1

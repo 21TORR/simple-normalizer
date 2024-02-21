@@ -11,7 +11,7 @@
 	],
 	"homepage": "https://github.com/21TORR/simple-normalizer",
 	"require": {
-		"php": ">= 8.1",
+		"php": ">= 8.3",
 		"21torr/bundle-helpers": "^2.1",
 		"symfony/dependency-injection": "^6.1",
 		"symfony/http-kernel": "^6.1"
