@@ -3,6 +3,7 @@
 
 * (feature) Add `SimpleNormalizer::normalizeMap()`.
 * (feature) Add helper VO `ValueWithContext`.
+* (improvement) Require PHP 8.3.
 
 
 1.1.1
