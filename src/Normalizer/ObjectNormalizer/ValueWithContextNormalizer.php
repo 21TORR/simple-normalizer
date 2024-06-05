@@ -17,10 +17,9 @@ final class ValueWithContextNormalizer implements SimpleObjectNormalizerInterfac
 
 		return $normalizer->normalize(
 			$value->value,
-			\array_replace($context, $value->context),
+			array_replace($context, $value->context),
 		);
 	}
-
 
 	/**
 	 * @inheritDoc
