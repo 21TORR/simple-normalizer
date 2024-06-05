@@ -63,7 +63,7 @@ final class SimpleNormalizer
 
 	/**
 	 */
-	private function normalizeArray (array $array, array $context) : array
+	public function normalizeArray (array $array, array $context) : array
 	{
 		$result = [];
 		$isList = \array_is_list($array);
