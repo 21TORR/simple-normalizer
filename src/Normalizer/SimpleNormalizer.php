@@ -16,7 +16,6 @@ final class SimpleNormalizer
 		private readonly ServiceLocator $objectNormalizers,
 	) {}
 
-
 	/**
 	 */
 	public function normalize (mixed $value, array $context = []) : mixed
@@ -35,38 +34,39 @@ final class SimpleNormalizer
 		{
 			try
 			{
-				$className = \get_class($value);
+				$className = $value::class;
 
-				if (\class_exists(ClassUtils::class))
+				if (class_exists(ClassUtils::class))
 				{
 					$className = ClassUtils::getRealClass($className);
 				}
 
 				$normalizer = $this->objectNormalizers->get($className);
 				\assert($normalizer instanceof SimpleObjectNormalizerInterface);
+
 				return $normalizer->normalize($value, $context, $this);
 			}
 			catch (ServiceNotFoundException $exception)
 			{
-				throw new ObjectTypeNotSupportedException(\sprintf(
+				throw new ObjectTypeNotSupportedException(sprintf(
 					"Can't normalize type %s",
-					\get_debug_type($value),
+					get_debug_type($value),
 				), 0, $exception);
 			}
 		}
 
-		throw new UnsupportedTypeException(\sprintf(
+		throw new UnsupportedTypeException(sprintf(
 			"Can't normalize type %s",
-			\get_debug_type($value),
+			get_debug_type($value),
 		));
 	}
 
 	/**
 	 */
-	private function normalizeArray (array $array, array $context) : array
+	public function normalizeArray (array $array, array $context) : array
 	{
 		$result = [];
-		$isList = \array_is_list($array);
+		$isList = array_is_list($array);
 
 		foreach ($array as $key => $value)
 		{
@@ -92,7 +92,6 @@ final class SimpleNormalizer
 
 		return $result;
 	}
-
 
 	/**
 	 * Normalizes a map of values.

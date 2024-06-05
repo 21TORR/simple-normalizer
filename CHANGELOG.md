@@ -1,3 +1,9 @@
+1.2.2
+=====
+
+* (improvement) Make `SimpleNormalizer::normalizeArray` public.
+
+
 1.2.1
 =====
 
