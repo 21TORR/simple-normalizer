@@ -4,11 +4,14 @@ namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
 use Tests\Torr\SimpleNormalizer\Fixture\DummyVO;
-use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\ObjectTypeNotSupportedException;
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 use Torr\SimpleNormalizer\Normalizer\SimpleObjectNormalizerInterface;
+use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 
+/**
+ * @internal
+ */
 final class ObjectNormalizationTest extends TestCase
 {
 	use SimpleNormalizerTestTrait;
@@ -18,11 +21,11 @@ final class ObjectNormalizationTest extends TestCase
 	 */
 	public function testNormalizeObject () : void
 	{
-		$dummyNormalizer = new class implements SimpleObjectNormalizerInterface
-		{
+		$dummyNormalizer = new class() implements SimpleObjectNormalizerInterface {
 			public function normalize (object $value, array $context, SimpleNormalizer $normalizer) : mixed
 			{
 				\assert($value instanceof DummyVO);
+
 				return [
 					"id" => $value->id,
 				];
@@ -37,7 +40,7 @@ final class ObjectNormalizationTest extends TestCase
 		$value = new DummyVO(42);
 		$normalizer = $this->createNormalizer($dummyNormalizer);
 
-		self::assertEquals(["id" => 42], $normalizer->normalize($value));
+		self::assertSame(["id" => 42], $normalizer->normalize($value));
 	}
 
 	/**

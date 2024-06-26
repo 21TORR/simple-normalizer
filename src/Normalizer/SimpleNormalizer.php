@@ -14,6 +14,7 @@ use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
 readonly class SimpleNormalizer
 {
 	/**
+	 * @param ServiceLocator<SimpleObjectNormalizerInterface> $objectNormalizers
 	 */
 	public function __construct (
 		private ServiceLocator $objectNormalizers,
