@@ -8,12 +8,15 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 use Torr\SimpleNormalizer\Exception\ObjectTypeNotSupportedException;
 use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
 
-final class SimpleNormalizer
+/**
+ * @final
+ */
+readonly class SimpleNormalizer
 {
 	/**
 	 */
 	public function __construct (
-		private readonly ServiceLocator $objectNormalizers,
+		private ServiceLocator $objectNormalizers,
 	) {}
 
 	/**
