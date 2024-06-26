@@ -1,3 +1,9 @@
+1.3.1
+=====
+
+* (improvement) Make `SimpleNormalizer` non-readonly, to allow it to be mocked.
+
+
 1.3.0
 =====
 

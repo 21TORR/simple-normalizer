@@ -9,15 +9,19 @@ use Torr\SimpleNormalizer\Exception\ObjectTypeNotSupportedException;
 use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
 
 /**
+ * The normalizer to use in your app.
+ *
+ * Can't be readonly, as it needs to be mock-able.
+ *
  * @final
  */
-readonly class SimpleNormalizer
+class SimpleNormalizer
 {
 	/**
 	 * @param ServiceLocator<SimpleObjectNormalizerInterface> $objectNormalizers
 	 */
 	public function __construct (
-		private ServiceLocator $objectNormalizers,
+		private readonly ServiceLocator $objectNormalizers,
 	) {}
 
 	/**
