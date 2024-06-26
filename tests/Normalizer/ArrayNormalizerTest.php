@@ -5,6 +5,9 @@ namespace Tests\Torr\SimpleNormalizer\Normalizer;
 use PHPUnit\Framework\TestCase;
 use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 
+/**
+ * @internal
+ */
 final class ArrayNormalizerTest extends TestCase
 {
 	use SimpleNormalizerTestTrait;
@@ -12,7 +15,7 @@ final class ArrayNormalizerTest extends TestCase
 	/**
 	 *
 	 */
-	public function provideListArray () : iterable
+	public static function provideListArray () : iterable
 	{
 		yield [[1, 2, 3, 4], [1, 2, 3, 4]];
 		yield [[1, null, 3, null], [1, 3]];
@@ -28,14 +31,14 @@ final class ArrayNormalizerTest extends TestCase
 		$normalizer = $this->createNormalizer();
 		$actual = $normalizer->normalize($input);
 
-		self::assertEquals($expected, $actual);
-		self::assertTrue(\array_is_list($actual));
+		self::assertSame($expected, $actual);
+		self::assertTrue(array_is_list($actual));
 	}
 
 	/**
 	 *
 	 */
-	public function provideAssociativeArray () : iterable
+	public static function provideAssociativeArray () : iterable
 	{
 		yield [["a" => 1, "b" => 2, "c" => 3, "d" => 4], ["a" => 1, "b" => 2, "c" => 3, "d" => 4]];
 		yield [["a" => 1, "b" => null, "c" => 3, "d" => null], ["a" => 1, "b" => null, "c" => 3, "d" => null]];
@@ -50,7 +53,7 @@ final class ArrayNormalizerTest extends TestCase
 		$normalizer = $this->createNormalizer();
 		$actual = $normalizer->normalize($input);
 
-		self::assertEquals($expected, $actual);
-		self::assertFalse(\array_is_list($actual));
+		self::assertSame($expected, $actual);
+		self::assertFalse(array_is_list($actual));
 	}
 }

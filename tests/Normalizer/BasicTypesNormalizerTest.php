@@ -3,9 +3,12 @@
 namespace Tests\Torr\SimpleNormalizer\Normalizer;
 
 use PHPUnit\Framework\TestCase;
-use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 use Torr\SimpleNormalizer\Exception\UnsupportedTypeException;
+use Torr\SimpleNormalizer\Test\SimpleNormalizerTestTrait;
 
+/**
+ * @internal
+ */
 final class BasicTypesNormalizerTest extends TestCase
 {
 	use SimpleNormalizerTestTrait;
@@ -13,7 +16,7 @@ final class BasicTypesNormalizerTest extends TestCase
 	/**
 	 *
 	 */
-	public function provideBasicValue () : iterable
+	public static function provideBasicValue () : iterable
 	{
 		yield [null, null];
 		yield [5, 5];
@@ -34,7 +37,7 @@ final class BasicTypesNormalizerTest extends TestCase
 	/**
 	 *
 	 */
-	public function provideInvalidValue () : iterable
+	public static function provideInvalidValue () : iterable
 	{
 		yield [fopen("php://memory", "rb")];
 	}

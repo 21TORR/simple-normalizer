@@ -10,6 +10,9 @@ use Torr\SimpleNormalizer\Normalizer\ObjectNormalizer\ValueWithContextNormalizer
 use Torr\SimpleNormalizer\Normalizer\SimpleNormalizer;
 use Torr\SimpleNormalizer\Normalizer\SimpleObjectNormalizerInterface;
 
+/**
+ * @internal
+ */
 final class ValueWithContextNormalizerTest extends TestCase
 {
 	/**
@@ -37,8 +40,8 @@ final class ValueWithContextNormalizerTest extends TestCase
 			);
 
 		$normalizer = new SimpleNormalizer(new ServiceLocator([
-			ValueWithContext::class => fn () => new ValueWithContextNormalizer(),
-			DummyVO::class => fn () => $dummyNormalizer,
+			ValueWithContext::class => static fn () => new ValueWithContextNormalizer(),
+			DummyVO::class => static fn () => $dummyNormalizer,
 		]));
 
 		$normalizer->normalize($value, [

@@ -1,3 +1,10 @@
+1.3.0
+=====
+
+* (feature) Make `SimpleNormalizer` extendable (for testing).
+* (improvement) Make `SimpleNormalizer` readonly.
+
+
 1.2.2
 =====
 
