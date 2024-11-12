@@ -63,14 +63,14 @@ class SimpleNormalizer
 			}
 			catch (ServiceNotFoundException $exception)
 			{
-				throw new ObjectTypeNotSupportedException(sprintf(
+				throw new ObjectTypeNotSupportedException(\sprintf(
 					"Can't normalize type %s",
 					get_debug_type($value),
 				), 0, $exception);
 			}
 		}
 
-		throw new UnsupportedTypeException(sprintf(
+		throw new UnsupportedTypeException(\sprintf(
 			"Can't normalize type %s",
 			get_debug_type($value),
 		));

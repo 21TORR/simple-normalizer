@@ -57,7 +57,6 @@ final class ObjectNormalizationTest extends TestCase
 		);
 	}
 
-
 	/**
 	 *
 	 */
