@@ -40,6 +40,13 @@ class SimpleNormalizer
 
 		if (\is_object($value))
 		{
+			// Allow empty stdClass as a way to force a JSON {} instead of an
+			// array which would encode to []
+			if ($value instanceof \stdClass && [] === get_object_vars($value))
+			{
+				return $value;
+			}
+
 			try
 			{
 				$className = $value::class;
