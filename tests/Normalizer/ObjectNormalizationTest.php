@@ -46,6 +46,34 @@ final class ObjectNormalizationTest extends TestCase
 	/**
 	 *
 	 */
+	public function testEmptyStdClass () : void
+	{
+		$normalizer = $this->createNormalizer();
+		$object = new \stdClass();
+
+		self::assertSame(
+			$object,
+			$normalizer->normalize($object),
+		);
+	}
+
+	/**
+	 *
+	 */
+	public function testNonEmptyStdClassIsInvalid () : void
+	{
+		$normalizer = $this->createNormalizer();
+		$object = new \stdClass();
+		$object->prop = 5;
+
+		$this->expectException(ObjectTypeNotSupportedException::class);
+		$this->expectExceptionMessage("Can't normalize type stdClass");
+		$normalizer->normalize($object);
+	}
+
+	/**
+	 *
+	 */
 	public function testMissingNormalizer () : void
 	{
 		$this->expectException(ObjectTypeNotSupportedException::class);

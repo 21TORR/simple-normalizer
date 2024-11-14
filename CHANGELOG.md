@@ -1,3 +1,9 @@
+1.3.2
+=====
+
+* (improvement) Allow normalizing empty `stdClass`.
+
+
 1.3.1
 =====
 
